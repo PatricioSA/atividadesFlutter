@@ -31,13 +31,13 @@ class _PesoIdealState extends State<PesoIdeal> {
   }
 
   classificacaoImc() {
-    if(_imc < 17 && _imc <= 18.4) {
+    if (_imc < 17 && _imc <= 18.4) {
       return _classificacao = 'Magreza';
-    }else if(_imc >= 18.5 && _imc <= 24.9) {
+    } else if (_imc >= 18.5 && _imc <= 24.9) {
       return _classificacao = 'Peso Adequado';
-    }else if(_imc >= 25 && _imc <= 29.9) {
+    } else if (_imc >= 25 && _imc <= 29.9) {
       return _classificacao = 'Pré-obeso';
-    }else if(_imc > 29.9) {
+    } else if (_imc > 29.9) {
       return _classificacao = 'Obeso';
     }
   }
@@ -78,6 +78,9 @@ class _PesoIdealState extends State<PesoIdeal> {
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 labelText: 'Entre com a altura (ex.: 1.70)',
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -94,6 +97,9 @@ class _PesoIdealState extends State<PesoIdeal> {
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 labelText: 'Entre com o Peso (ex.: 70.5)',
                 suffixIcon: IconButton(
                   onPressed: () {},
@@ -117,10 +123,21 @@ class _PesoIdealState extends State<PesoIdeal> {
             ),
             Text(
               _imc.toStringAsFixed(2),
-              style: TextStyle(fontSize: 26, color: Colors.blue,),
+              style: TextStyle(
+                fontSize: 26,
+                color: Colors.blue,
+              ),
             ),
-            const SizedBox(height: 20,),
-            Text(_classificacao, style: TextStyle(fontSize: 26, color: Colors.blue,),),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              _classificacao,
+              style: TextStyle(
+                fontSize: 26,
+                color: Colors.blue,
+              ),
+            ),
           ],
         ),
       ),

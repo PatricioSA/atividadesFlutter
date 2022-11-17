@@ -82,6 +82,7 @@ class _JokenpoState extends State<Jokenpo> {
           Text(
             _resultado,
             style: TextStyle(
+              color: _resultado == 'Você venceu!!!' ? Colors.blue : Colors.red,
               fontSize: 26,
               fontWeight: FontWeight.w600,
             ),
@@ -99,7 +100,7 @@ class _JokenpoState extends State<Jokenpo> {
                     //colocarImagemEscolhaApp(jogar);
                   });
                 },
-                child: Image.asset('images/pedra.png'),
+                child: Image.asset('images/pedra.png', width: 110,),
               ),
               GestureDetector(
                 onTap: () {
@@ -107,7 +108,7 @@ class _JokenpoState extends State<Jokenpo> {
                     jogar('papel');
                   });
                 },
-                child: Image.asset('images/papel.png'),
+                child: Image.asset('images/papel.png', width: 110,),
               ),
               GestureDetector(
                 onTap: () {
@@ -115,7 +116,7 @@ class _JokenpoState extends State<Jokenpo> {
                     jogar('tesoura');
                   });
                 },
-                child: Image.asset('images/tesoura.png'),
+                child: Image.asset('images/tesoura.png', width: 110,),
               ),
             ],
           ),
