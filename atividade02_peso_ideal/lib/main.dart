@@ -51,94 +51,97 @@ class _PesoIdealState extends State<PesoIdeal> {
       ),
       body: Container(
         margin: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Container(
-              width: 500,
-              child: Image.asset(
-                'images/pesoIdeal.png',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Cálculo do Peso Ideal,' + ' preencha as informações abaixo',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                labelText: 'Entre com a altura (ex.: 1.70)',
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    _altura.clear();
-                  },
-                  icon: Icon(Icons.clear),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: 500,
+                child: Image.asset(
+                  'images/pesoIdeal.png',
+                  fit: BoxFit.fitWidth,
                 ),
               ),
-              controller: _altura,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Cálculo do Peso Ideal, preencha as' + 
+                    '\ninformações abaixo',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Entre com a altura (ex.: 1.70)',
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      _altura.clear();
+                    },
+                    icon: Icon(Icons.clear),
+                  ),
                 ),
-                labelText: 'Entre com o Peso (ex.: 70.5)',
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.clear),
+                controller: _altura,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  labelText: 'Entre com o Peso (ex.: 70.5)',
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.clear),
+                  ),
+                ),
+                controller: _peso,
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              ElevatedButton(
+                onPressed: calcularImc,
+                child: Text('Calcular'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
                 ),
               ),
-              controller: _peso,
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            ElevatedButton(
-              onPressed: calcularImc,
-              child: Text('Calcular'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+              const SizedBox(
+                height: 20,
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              _imc.toStringAsFixed(2),
-              style: TextStyle(
-                fontSize: 26,
-                color: Colors.blue,
+              Text(
+                _imc.toStringAsFixed(2),
+                style: TextStyle(
+                  fontSize: 26,
+                  color: Colors.blue,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              _classificacao,
-              style: TextStyle(
-                fontSize: 26,
-                color: Colors.blue,
+              const SizedBox(
+                height: 20,
               ),
-            ),
-          ],
+              Text(
+                _classificacao,
+                style: TextStyle(
+                  fontSize: 26,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
